@@ -1,5 +1,14 @@
--name: Roboshop App Playbook
-hosts: all
-become: true
-roles:
-  - "{{ app_name}}"
+- name: roboshop app playbook
+  hosts: all
+  become: yes
+  tasks:
+    roles:
+      "{{ app_name }}"
+
+
+
+
+
+
+
+
