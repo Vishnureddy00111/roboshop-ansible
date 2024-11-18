@@ -6,4 +6,22 @@
     name: common
     tasks_from: nodejs
 
+- name: Copy mongoDB repo file
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
 
+- name: Install MongoDB Client
+  ansible.builtin.dnf:
+    name: Mongodb-mongosh
+    state: installed
+
+
+- name: Load Mater data
+  ansible.builtin.shell: mongosh --host mongodb-{{ env }}.vishnureddy.online </app/db/master-data.js
+
+
+- name: Restart Catalogue service
+  ansible.builtin.systemd_service:
+    name: catalogue
+  state: restarted
