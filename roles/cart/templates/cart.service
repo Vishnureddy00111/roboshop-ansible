@@ -1,0 +1,12 @@
+[Unit]
+Description = cart Service
+[Service]
+User=roboshop
+Environment=MONGO=true
+Environment=REDIS_HOST='redis-{{ env }}.vishnuredddy.online
+Environment=CATALOGUE_HOST=catalogue-{{ env }}.vishnuredddy.online
+ExecStart=/bin/node /app/server.js
+SyslogIdentifier=cart
+
+[Install]
+WantedBy=multi-user.target
