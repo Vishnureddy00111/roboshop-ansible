@@ -1,4 +1,4 @@
-- name: Fronted playbook
+- name: frontend playbook
   hosts: all
   become: yes
   tasks:
